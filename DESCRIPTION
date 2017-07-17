@@ -1,0 +1,12 @@
+Package: SkyWiseNetCDFR
+Type: Package
+Title: Reads and Queries SkyWise NetCDF files
+Version: 0.1.0
+Author: Lee Robb
+Maintainer: Lee Robb <lrobb2@gmail.com>
+Description: Demonstrates how to read and query skywise netcdf weather files.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: ncdf4
+LazyData: true
+RoxygenNote: 6.0.1
