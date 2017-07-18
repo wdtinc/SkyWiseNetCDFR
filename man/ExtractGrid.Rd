@@ -4,10 +4,10 @@
 \alias{ExtractGrid}
 \title{ExtractGrid}
 \usage{
-ExtractGrid(fname, var)
+ExtractGrid(fileName, var)
 }
 \arguments{
-\item{fname}{the netcdf filename you want to extract a variable from}
+\item{fileName}{the netcdf filename you want to extract a variable from}
 
 \item{var}{the name of the variable you want to extract from the netcdf file}
 }

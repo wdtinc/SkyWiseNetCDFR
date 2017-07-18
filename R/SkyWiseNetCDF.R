@@ -2,7 +2,7 @@ library(ncdf4)
 #' ExtractGrid
 #'
 #' Extracts a parameter from the netcdf as well as the netcdf attributes
-#' @param fname the netcdf filename you want to extract a variable from
+#' @param fileName the netcdf filename you want to extract a variable from
 #' @param var the name of the variable you want to extract from the netcdf file
 #'
 #' @return a named list containing the variable and the file attributes
@@ -11,8 +11,8 @@ library(ncdf4)
 #' @examples
 #' \dontrun{ grid <- ExtractGrid("file.nc", "temperature") }
 
-ExtractGrid <- function(fname, var) {
-  nc <- ncdf4::nc_open(fname)
+ExtractGrid <- function(fileName, var) {
+  nc <- ncdf4::nc_open(fileName)
 
   variable <- ncdf4::ncvar_get(nc, var)
   attributes <- ncdf4::ncatt_get(nc, 0)
@@ -87,8 +87,19 @@ GetValueAtPoint <-
     grid$variable[x, y]
   }
 
-GetFileInfo <- function(fname) {
-  nc <- ncdf4::nc_open(fname)
+
+#' Title
+#'
+#' @param fileName The name of the file to inspect
+#'
+#' @return A list containing the netcdf variable names and attributes
+#' @export
+#'
+#' @examples
+#' \dontrun{ fileInfo <- GetFileInfo(fileName) }
+
+GetFileInfo <- function(fileName) {
+  nc <- ncdf4::nc_open(fileName)
 
   variables <- names(nc$var)
   attributes <- ncdf4::ncatt_get(nc, 0)
