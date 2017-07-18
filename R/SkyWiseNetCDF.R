@@ -11,7 +11,6 @@ library(ncdf4)
 #' @examples
 #' \dontrun{ grid <- ExtractGrid("file.nc", "temperature") }
 
-
 ExtractGrid <- function(fname, var) {
   nc <- ncdf4::nc_open(fname)
 
@@ -87,3 +86,14 @@ GetValueAtPoint <-
 
     grid$variable[x, y]
   }
+
+GetFileInfo <- function(fname) {
+  nc <- ncdf4::nc_open(fname)
+
+  variables <- names(nc$var)
+  attributes <- ncdf4::ncatt_get(nc, 0)
+
+  ncdf4::nc_close(nc)
+  list(variables = variables, attributes = attributes)
+
+}
